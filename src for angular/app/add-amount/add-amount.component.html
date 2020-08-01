@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+</head>
+<body>
+  <div class="alert alert-success" *ngIf="msg != undefined">{{msg}}</div>
+  <div class="alert alert-danger" *ngIf="errorMsg != undefined">{{errorMsg}}</div>
+  <a class="btn btn-primary" routerLink="/home">Back</a>
+
+  <div *ngIf="showFlag">
+    <div class="container mx-auto">
+      <h1>Add Amount</h1>
+      <form #accfrm="ngForm" (ngSubmit)="addAmount()">
+        <i id="fas" class="fas fa-rupee-sign"></i>
+        <input type="number"  id="amount" name="amount" class="border-primary-rounded" 
+        required #amt="ngModel" [(ngModel)]="amount" placeholder="Enter Amount">
+
+        <div>
+          <input type="button" class="btn btn-primary m-3" value="+100" (click)="add(100)">
+          <input type="button" class="btn btn-primary m-3" value="+200" (click)="add(200)">
+          <input type="button" class="btn btn-primary m-3" value="+500" (click)="add(500)">
+        </div>
+
+        <button type="submit" class="btn btn-success p-1 m-1"  [disabled]="!accfrm.valid">
+          Add Amount
+        </button>
+
+      </form>
+    </div>
+    
+  </div>
+
+  <div class="container-fluid text-center">
+
+    <div class="col-md-4">
+      <div class="square-mid">
+        <div class="fa-fa">
+          <span class="fa-stack fa-3x">
+            <i class="fas fa-heart"></i>
+          </span>
+        </div>
+
+        <div>24x7 Help</div>
+        <div>Have a query need help?</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="square-mid">
+        <div class="fa-fa">
+          <span class="fa-stack fa-3x">
+            <i class="fas fa-check-circle"></i>
+          </span>
+        </div>
+
+        <div>Your Trust</div>
+        <div>Your money is all yours! All refunds come with  no question asked guarantee </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="square-mid">
+        <div class="fa-fa">
+          <span class="fa-stack fa-3x">
+            <i class="fas fa-star"></i>
+          </span>
+        </div>
+
+        <div>100% Assurance</div>
+        <div>We provide 100% assurance, if you have any issue your money is immediately refunded. So sit back and relax.</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
